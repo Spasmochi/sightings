@@ -130,3 +130,7 @@ table {
 ul {
   padding-inline-start: 0px !important;
 }
+html {
+  font-family: proxima-nova, sans-serif !important;
+  font-style: normal;
+}

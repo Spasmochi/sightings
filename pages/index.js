@@ -64,6 +64,10 @@ export default function Home() {
       <Head>
         <title>Ghosts Global Alert</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://use.typekit.net/jyh4wlw.css"
+        ></link>
         <style>
           {`
          ul {
