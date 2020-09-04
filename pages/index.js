@@ -159,7 +159,7 @@ function Search({ panTo }) {
   });
 
   return (
-    <div className="absolute top-0 z-20 flex flex-col items-center justify-center w-full">
+    <div className="absolute top-0 z-20 flex flex-col items-center justify-center w-full font-sans">
       <h1 className="text-center text-white text-3xl font-bold">
         &#x1F47B; Alert Global
       </h1>
