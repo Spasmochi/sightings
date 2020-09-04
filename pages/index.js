@@ -61,6 +61,11 @@ export default function Home() {
     mapRef.current = map;
   }, []);
 
+  const panTo = useCallback(({ lat, lng }) => {
+    mapRef.current.panTo({ lat, lng });
+    mapRef.current.setZoom(15);
+  });
+
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
 
@@ -73,7 +78,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.h1}>Ghosts &#x1F47B;</h1>
-        <Search />
+        <Search panTo={panTo} />
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={15}
@@ -116,7 +121,7 @@ export default function Home() {
   );
 }
 
-function Search() {
+function Search(panTo) {
   const {
     ready,
     value,
@@ -131,12 +136,11 @@ function Search() {
         onSelect={async (address) => {
           try {
             const results = await getGeocode({ address });
-            console.log(results[0]);
+            const { lat, lng } = await getLatLng(results[0]);
+            panTo({ lat, lng });
           } catch (error) {
             console.log(error);
           }
-
-          console.log(address);
         }}
       >
         <ComboboxInput
