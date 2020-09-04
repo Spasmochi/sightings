@@ -136,7 +136,27 @@
 }
 
 .comboInput {
-  width: ;
   height: 3rem;
   font-size: 2rem;
+}
+
+.compass {
+  position: absolute;
+  bottom: 1rem;
+  z-index: 10;
+  right: 30%;
+  background: none;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+}
+
+.compass:focus {
+  border: none;
+  outline: none;
+}
+
+.compass > img {
+  width: 100%;
 }

@@ -79,6 +79,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.h1}>Ghosts &#x1F47B;</h1>
         <Search panTo={panTo} />
+        <Compass panTo={panTo} />
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={15}
@@ -118,6 +119,27 @@ export default function Home() {
         </GoogleMap>
       </main>
     </div>
+  );
+}
+
+function Compass({ panTo }) {
+  return (
+    <button
+      className={styles.compass}
+      onClick={() => {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            panTo({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            });
+          },
+          () => null
+        );
+      }}
+    >
+      <img src="/compass.svg" alt="compass - find me" />
+    </button>
   );
 }
 
@@ -163,10 +185,12 @@ function Search({ panTo }) {
           placeholder="Find a location"
         />
         <ComboboxPopover>
-          {status === "OK" &&
-            data.map(({ id, description }) => (
-              <ComboboxOption value={description} />
-            ))}
+          <ComboboxList>
+            {status === "OK" &&
+              data.map(({ id, description }) => (
+                <ComboboxOption value={description} />
+              ))}
+          </ComboboxList>
         </ComboboxPopover>
       </Combobox>
     </div>
