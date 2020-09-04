@@ -15,8 +15,13 @@
   "devDependencies": {
     "@reach/combobox": "^0.11.2",
     "@react-google-maps/api": "^1.9.12",
+    "@tailwindcss/ui": "^0.5.0",
+    "autoprefixer": "^9.8.6",
     "combobox": "^1.0.1",
     "date-fns": "^2.16.1",
+    "postcss": "^7.0.32",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.7.6",
     "use-places-autocomplete": "^1.3.11"
   }
 }

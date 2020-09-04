@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import {
   GoogleMap,
   useLoadScript,
@@ -70,16 +69,15 @@ export default function Home() {
   if (!isLoaded) return "Loading maps";
 
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <title>Ghosts Global Alert</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.h1}>Ghosts &#x1F47B;</h1>
+      <main className="h-screen w-screen relative">
         <Search panTo={panTo} />
-        <Compass panTo={panTo} />
+
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={15}
@@ -125,7 +123,7 @@ export default function Home() {
 function Compass({ panTo }) {
   return (
     <button
-      className={styles.compass}
+      className="w-8 focus:outline-none"
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -138,7 +136,7 @@ function Compass({ panTo }) {
         );
       }}
     >
-      <img src="/compass.svg" alt="compass - find me" />
+      <img className="w-full" src="/compass.svg" alt="compass - find me" />
     </button>
   );
 }
@@ -161,38 +159,43 @@ function Search({ panTo }) {
   });
 
   return (
-    <div className={styles.comboBox}>
-      <Combobox
-        onSelect={async (address) => {
-          setValue(address, false);
-          clearSuggestions();
-          try {
-            const results = await getGeocode({ address });
-            const { lat, lng } = await getLatLng(results[0]);
-            panTo({ lat, lng });
-          } catch (error) {
-            console.log(error);
-          }
-        }}
-      >
-        <ComboboxInput
-          className={styles.comboInput}
-          value={value}
-          onChange={(event) => {
-            setValue(event.target.value);
+    <div className="absolute top-0 z-20 flex flex-col items-center justify-center w-full">
+      <h1 className="text-center text-white text-3xl">Ghosts &#x1F47B;</h1>
+      <div className="flex flex-row space-between justify-center items-center  mt-2">
+        <Combobox
+          className="mr-5"
+          onSelect={async (address) => {
+            setValue(address, false);
+            clearSuggestions();
+            try {
+              const results = await getGeocode({ address });
+              const { lat, lng } = await getLatLng(results[0]);
+              panTo({ lat, lng });
+            } catch (error) {
+              console.log(error);
+            }
           }}
-          disabled={!ready}
-          placeholder="Find a location"
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {status === "OK" &&
-              data.map(({ id, description }) => (
-                <ComboboxOption value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
+        >
+          <ComboboxInput
+            className="p-1 form-input"
+            value={value}
+            onChange={(event) => {
+              setValue(event.target.value);
+            }}
+            disabled={!ready}
+            placeholder="Find a location"
+          />
+          <ComboboxPopover>
+            <ComboboxList>
+              {status === "OK" &&
+                data.map(({ id, description }) => (
+                  <ComboboxOption value={description} />
+                ))}
+            </ComboboxList>
+          </ComboboxPopover>
+        </Combobox>
+        <Compass panTo={panTo} />
+      </div>
     </div>
   );
 }
