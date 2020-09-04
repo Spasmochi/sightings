@@ -77,7 +77,11 @@ export default function Home() {
           `}
         </style>
       </Head>
-
+      <style jsx>
+        {`
+          font-family: proxima-nova, sans-serif !important;
+        `}
+      </style>
       <main className="relative h-full">
         <Shell panTo={panTo}>
           <GoogleMap
