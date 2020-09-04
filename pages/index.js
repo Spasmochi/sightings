@@ -69,13 +69,13 @@ export default function Home() {
   if (!isLoaded) return "Loading maps";
 
   return (
-    <div className="">
+    <div className="absolute w-screen h-screen">
       <Head>
         <title>Ghosts Global Alert</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-screen w-screen relative">
+      <main className="relative">
         <Search panTo={panTo} />
 
         <GoogleMap
