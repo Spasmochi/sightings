@@ -64,7 +64,7 @@ export default function Home() {
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(15);
-  });
+  }, []);
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
@@ -121,19 +121,29 @@ export default function Home() {
   );
 }
 
-function Search(panTo) {
+function Search({ panTo }) {
   const {
     ready,
     value,
     suggestions: { status, data },
     setValue,
     clearSuggestions,
-  } = usePlacesAutocomplete({});
+  } = usePlacesAutocomplete({
+    requestOptions: {
+      location: {
+        lat: () => -33.8688,
+        lng: () => 151.2093,
+      },
+      radius: 200 * 1000,
+    },
+  });
 
   return (
     <div className={styles.comboBox}>
       <Combobox
         onSelect={async (address) => {
+          setValue(address, false);
+          clearSuggestions();
           try {
             const results = await getGeocode({ address });
             const { lat, lng } = await getLatLng(results[0]);
