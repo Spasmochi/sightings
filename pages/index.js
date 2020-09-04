@@ -33,7 +33,7 @@ const center = {
 const options = {
   styles: mapStyle,
   disableDefaultUI: true,
-  zoomControl: true,
+  zoomControl: false,
 };
 
 export default function Home() {
