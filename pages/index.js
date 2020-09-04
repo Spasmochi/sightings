@@ -9,6 +9,7 @@ import { formatRelative } from "date-fns";
 import mapStyle from "../components/mapStyle";
 import { useState, useCallback } from "react";
 import Search from "../components/Search";
+import Shell from "../components/Shell";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -74,45 +75,45 @@ export default function Home() {
       </Head>
 
       <main className="relative">
-        <Search panTo={panTo} />
-
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={15}
-          center={center}
-          options={options}
-          onClick={onMapClick}
-          onLoad={onMapLoad}
-        >
-          {markers.map((marker) => (
-            <Marker
-              key={marker.time.toISOString()}
-              position={{ lat: marker.lat, lng: marker.lng }}
-              icon={{
-                url: "/ghost.svg",
-                scaledSize: new window.google.maps.Size(30, 30),
-                origin: new window.google.maps.Point(0, 0),
-                anchor: new window.google.maps.Point(15, 15),
-              }}
-              onClick={() => {
-                setSelected(marker);
-              }}
-            />
-          ))}
-          {Selected ? (
-            <InfoWindow
-              position={{ lat: Selected.lat, lng: Selected.lng }}
-              onCloseClick={() => {
-                setSelected(null);
-              }}
-            >
-              <div>
-                <p>Ghost Seen</p>
-                <p>{formatRelative(Selected.time, new Date())}</p>
-              </div>
-            </InfoWindow>
-          ) : null}
-        </GoogleMap>
+        <Shell panTo={panTo}>
+          <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            zoom={15}
+            center={center}
+            options={options}
+            onClick={onMapClick}
+            onLoad={onMapLoad}
+          >
+            {markers.map((marker) => (
+              <Marker
+                key={marker.time.toISOString()}
+                position={{ lat: marker.lat, lng: marker.lng }}
+                icon={{
+                  url: "/ghost.svg",
+                  scaledSize: new window.google.maps.Size(30, 30),
+                  origin: new window.google.maps.Point(0, 0),
+                  anchor: new window.google.maps.Point(15, 15),
+                }}
+                onClick={() => {
+                  setSelected(marker);
+                }}
+              />
+            ))}
+            {Selected ? (
+              <InfoWindow
+                position={{ lat: Selected.lat, lng: Selected.lng }}
+                onCloseClick={() => {
+                  setSelected(null);
+                }}
+              >
+                <div>
+                  <p>Ghost Seen</p>
+                  <p>{formatRelative(Selected.time, new Date())}</p>
+                </div>
+              </InfoWindow>
+            ) : null}
+          </GoogleMap>
+        </Shell>
       </main>
     </div>
   );
