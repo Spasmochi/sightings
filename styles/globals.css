@@ -1,8 +1,11 @@
 html,
 body {
-  margin: auto;
   padding: 0;
   margin: 0;
+}
+
+body {
+  margin: auto;
 }
 
 a {
