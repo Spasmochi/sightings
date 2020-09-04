@@ -123,7 +123,7 @@ export default function Home() {
 function Compass({ panTo }) {
   return (
     <button
-      className="w-8 focus:outline-none"
+      className="w-8 focus:outline-none cursor-pointer"
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -194,7 +194,7 @@ function Search({ panTo }) {
                   data.map(({ id, description }) => (
                     <ComboboxOption
                       value={description}
-                      className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
                     />
                   ))}
               </div>
