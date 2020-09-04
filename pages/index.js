@@ -73,6 +73,14 @@ export default function Home() {
       <Head>
         <title>Ghosts Global Alert</title>
         <link rel="icon" href="/favicon.ico" />
+        <style>
+          {`
+         ul {
+       padding-inline-start: 0px !important;
+          }
+
+          `}
+        </style>
       </Head>
 
       <main className="relative">
