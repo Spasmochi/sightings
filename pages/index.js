@@ -1,7 +1,38 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
+import { formatRelative } from "date-fns";
+import mapStyle from "./mapStyle";
+
+const libraries = ["places"];
+const mapContainerStyle = {
+  width: "100vw",
+  height: "100vh",
+};
+const center = {
+  lat: -33.8688,
+  lng: 151.2093,
+};
+const options = {
+  styles: mapStyle,
+  disableDefaultUI: true,
+  zoomControl: true,
+};
 
 export default function Home() {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.API_TOKEN,
+    libraries,
+  });
+
+  if (loadError) return "Error loading maps";
+  if (!isLoaded) return "Loading maps";
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,56 +41,24 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1>Ghosts &#x1F47B;</h1>
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={15}
+          center={center}
+          options={options}
+        ></GoogleMap>
       </main>
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/Spasmochi"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          A Spasmochi Creation{" "}
         </a>
       </footer>
     </div>
-  )
+  );
 }
