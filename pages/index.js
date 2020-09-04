@@ -7,7 +7,7 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import { formatRelative } from "date-fns";
-import mapStyle from "./mapStyle";
+import mapStyle from "../components/mapStyle";
 import { useState, useCallback } from "react";
 import usePlacesAutocomplete, {
   getGeocode,
