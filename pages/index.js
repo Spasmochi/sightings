@@ -69,7 +69,7 @@ export default function Home() {
   if (!isLoaded) return "Loading maps";
 
   return (
-    <div className="absolute w-screen h-screen">
+    <div className="absolute w-screen h-screen top-0 left-0">
       <Head>
         <title>Ghosts Global Alert</title>
         <link rel="icon" href="/favicon.ico" />
