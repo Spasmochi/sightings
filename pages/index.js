@@ -13,8 +13,8 @@ import Shell from "../components/Shell";
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: "100vw",
-  height: "100vh",
+  width: "100%",
+  height: "100%",
 };
 const center = {
   lat: -33.8688,
@@ -74,7 +74,7 @@ export default function Home() {
         </style>
       </Head>
 
-      <main className="relative">
+      <main className="relative h-full">
         <Shell panTo={panTo}>
           <GoogleMap
             mapContainerStyle={mapContainerStyle}

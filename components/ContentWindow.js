@@ -3,7 +3,7 @@ import Search from "./Search";
 
 export default function ContentWindow({ children, panTo }) {
   return (
-    <div className="flex flex-col w-0 flex-1 overflow-hidden">
+    <div className="h-full w-full flex flex-col w-0 flex-1 overflow-hidden">
       <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
         <button
           className={tw(
@@ -36,7 +36,7 @@ export default function ContentWindow({ children, panTo }) {
         className={tw("flex-1 relative overflow-y-auto focus:outline-none")}
         tabIndex="0"
       >
-        <div className={tw("mx-auto")}>{children}</div>
+        <div className={tw("h-full w-full mx-auto")}>{children}</div>
       </main>
     </div>
   );

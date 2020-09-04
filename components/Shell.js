@@ -8,7 +8,7 @@ import ContentWindow from "./ContentWindow";
 export default function Shell({ children, panTo }) {
   const [isOpen, setOpen] = useState(false);
   return (
-    <div className={tw("h-screen", "flex", "overflow-hidden", "bg-gray-100")}>
+    <div className={tw("flex h-full w-full", "overflow-hidden", "bg-gray-800")}>
       {/* <!-- Off-canvas menu for mobile --> */}
       <div className={tw("md:hidden")}>
         <div className={tw("fixed inset-0 flex")}>
