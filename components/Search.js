@@ -60,12 +60,15 @@ export default function Search({ panTo }) {
             disabled={!ready}
             placeholder="Find a location"
           />
-          <ComboboxPopover>
+          <ComboboxPopover className="bg-gray-800 text-white border-none">
             <ComboboxList>
               <div className="py-1">
                 {status === "OK" &&
                   data.map(({ id, description }) => (
-                    <ComboboxOption value={description} />
+                    <ComboboxOption
+                      className={tw("hover:bg-gray-900")}
+                      value={description}
+                    />
                   ))}
               </div>
             </ComboboxList>
