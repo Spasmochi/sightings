@@ -160,7 +160,9 @@ function Search({ panTo }) {
 
   return (
     <div className="absolute top-0 z-20 flex flex-col items-center justify-center w-full">
-      <h1 className="text-center text-white text-3xl">Ghosts &#x1F47B;</h1>
+      <h1 className="text-center text-white text-3xl font-bold">
+        &#x1F47B; Alert Global
+      </h1>
       <div className="flex flex-row space-between justify-center items-center  mt-2">
         <Combobox
           className="mr-5"
