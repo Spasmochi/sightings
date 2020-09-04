@@ -187,12 +187,17 @@ function Search({ panTo }) {
             disabled={!ready}
             placeholder="Find a location"
           />
-          <ComboboxPopover>
-            <ComboboxList>
-              {status === "OK" &&
-                data.map(({ id, description }) => (
-                  <ComboboxOption value={description} />
-                ))}
+          <ComboboxPopover className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
+            <ComboboxList className="rounded-md bg-white shadow-xs">
+              <div className="py-1">
+                {status === "OK" &&
+                  data.map(({ id, description }) => (
+                    <ComboboxOption
+                      value={description}
+                      className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                    />
+                  ))}
+              </div>
             </ComboboxList>
           </ComboboxPopover>
         </Combobox>
