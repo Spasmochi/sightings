@@ -119,7 +119,7 @@ export default function Home() {
                 }}
               >
                 <div>
-                  <p>Ghost Seen</p>
+                  <p>Ghost seen</p>
                   <p>{formatRelative(Selected.time, new Date())}</p>
                 </div>
               </InfoWindow>
