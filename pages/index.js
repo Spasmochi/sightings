@@ -63,6 +63,10 @@ export default function Home() {
     <div className="absolute w-screen h-screen top-0 left-0">
       <Head>
         <title>Ghosts Global Alert</title>
+        <meta
+          name="description"
+          content="Ghosts! An app to track all your ghost sightings!"
+        ></meta>
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
