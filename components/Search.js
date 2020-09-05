@@ -80,7 +80,6 @@ export default function Search({ panTo }) {
           className={tw(
             "p-1 rounded-full",
             "text-gray-400",
-            "hover:bg-gray-100 hover:text-gray-500",
             "focus:outline-none focus:shadow-outline focus:text-gray-500"
           )}
           aria-label="Notifications"
