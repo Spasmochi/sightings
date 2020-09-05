@@ -35,7 +35,7 @@ export default function Shell({ children, panTo }) {
         </div>
       </div>
       {/* <!-- Static sidebar for desktop --> */}
-      <StaticSidebar />
+      <StaticSidebar panTo={panTo} />
       <ContentWindow panTo={panTo}>{children}</ContentWindow>
     </div>
   );
