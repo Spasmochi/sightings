@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <div className="absolute w-screen h-screen top-0 left-0">
       <Head>
-        <title>Ghosts Global Alert</title>
+        <title>Ghosts Alert Global</title>
         <meta
           name="description"
           content="Ghosts! An app to track all your ghost sightings!"
