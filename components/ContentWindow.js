@@ -4,13 +4,12 @@ import Search from "./Search";
 export default function ContentWindow({ children, panTo }) {
   return (
     <div className="h-full w-full flex flex-col w-0 flex-1 overflow-hidden">
-      <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <div className="relative z-10 flex-shrink-0 flex h-16 bg-gray-800 shadow">
         <button
           className={tw(
             "px-4",
-            "border-r border-gray-200",
-            "text-gray-500",
-            "focus:outline-none focus:bg-gray-100 focus:text-gray-600",
+            "text-gray-200 bg-gray-800",
+            "focus:outline-none focus:bg-gray-900 focus:text-gray-300",
             "md:hidden"
           )}
           aria-label="Open sidebar"
