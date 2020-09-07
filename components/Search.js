@@ -58,7 +58,7 @@ export default function Search({ panTo }) {
               setValue(event.target.value);
             }}
             disabled={!ready}
-            placeholder="Find a location"
+            placeholder="🔎 Find a location"
           />
           <ComboboxPopover className="bg-gray-800 text-white border-none">
             <ComboboxList>
