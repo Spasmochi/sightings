@@ -1,16 +1,12 @@
 import tw from "../utils/tailwind";
-import { useContext } from "react";
-import LogsContext from "../contexts/LogsContext";
 
 function removeLog() {}
 
 export default function Log({ lat, lng }) {
-  // const newLat = useRecoilValue(rLat);
-
   return (
     <div
       className={tw(
-        "group relative flex items-center px-2 py-2",
+        "group relative flex flex-row items-center px-2 py-2",
         "text-sm leading-5 font-medium",
         "text-gray-300",
         "rounded-md",
@@ -37,7 +33,10 @@ export default function Log({ lat, lng }) {
           fill="currentColor"
         ></path>
       </svg>
-      <p className="pr-5">{`Ghost Sighting at lat:${lat} & lng:${lng}`}</p>
+      <div className={tw("flex flex-col")}>
+        <p>{lat}</p>
+        <p>{lng}</p>
+      </div>
       <div
         className={tw(
           "absolute inset-y-0 right-0 pt-1 pr-1 flex items-start sm:pt-1 sm:pr-2 sm:items-start"
