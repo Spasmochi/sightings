@@ -119,7 +119,7 @@ export default function Home() {
                 }}
               >
                 <div>
-                  <p>Ghost seen</p>
+                  <p>Ghost seen at {useRecoilValue(rLat)}</p>
                   <p>{formatRelative(Selected.time, new Date())}</p>
                 </div>
               </InfoWindow>

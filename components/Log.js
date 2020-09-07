@@ -1,8 +1,9 @@
 import tw from "../utils/tailwind";
+import { useRecoilValue } from "recoil";
 
-export default function Log({ panTo, log }) {
-  const lat = "33";
-  const lng = "144";
+export default function Log(props) {
+  // const newLat = useRecoilValue(rLat);
+
   return (
     <div
       className={tw(
@@ -33,7 +34,7 @@ export default function Log({ panTo, log }) {
           fill="currentColor"
         ></path>
       </svg>
-      Ghost Sighting
+      {/* Ghost Sighting at {useRecoilValue(newLat)} */}
     </div>
   );
 }

@@ -2486,6 +2486,11 @@ decode-uri-component@^0.2.0:
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
+deep-diff@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-1.0.2.tgz#afd3d1f749115be965e89c63edc7abb1506b9c26"
+  integrity sha512-aWS3UIVH+NPGCD1kki+DCU9Dua032iSsO43LqQpcs4R3+dVv7tX0qBGjiVHJHjplsoUM2XRO/KB92glqc68awg==
+
 define-properties@^1.1.2, define-properties@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
@@ -4945,6 +4950,27 @@ readdirp@~3.4.0:
   integrity sha512-0xe001vZBnJEK+uKcj8qOhyAKPzIT+gStxWr3LCB0DwcXR5NZJ3IaC+yGnHCYzB/S7ov3m3EEbZI2zeNvX+hGQ==
   dependencies:
     picomatch "^2.2.1"
+
+recoil-devtools-logger@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/recoil-devtools-logger/-/recoil-devtools-logger-0.0.9.tgz#e19f520a782dee6f1b5c8b514cf01fca67cda1f4"
+  integrity sha512-ClN6zwuVM6TgbTd6MXE2CZs7kSgHM9OlnEkRABkuHXdL5xsKy6glAX5Qinb2Fxpwu811nnltAHStZ3lQFacDLw==
+  dependencies:
+    deep-diff "^1.0.2"
+    recoil "^0.0.10"
+
+recoil-devtools@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/recoil-devtools/-/recoil-devtools-0.0.8.tgz#70f9282768bafc8c366856501de9684ee54b377d"
+  integrity sha512-+dLLXQNNLO8ZqNBXEI+FjRF+QljvOAR+EDYkSoFiQUyU3QczDYOHb2CIWFKytemiBlSAwEFFPtQWXxH4ZiFRwA==
+  dependencies:
+    deep-diff "^1.0.2"
+    recoil "^0.0.10"
+
+recoil@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.10.tgz#679ab22306f559f8a63c46fd5ff5241539f9248f"
+  integrity sha512-+9gRqehw3yKETmoZbhSnWu4GO10HDb5xYf1CjLF1oXGK2uT6GX5Lu9mfTXwjxV/jXxEKx8MIRUUbgPxvbJ8SEw==
 
 reduce-css-calc@^2.1.6:
   version "2.1.7"
