@@ -1,24 +1,32 @@
-import { useState, createContext } from "react";
+import { useState } from "react";
 import tw from "../utils/tailwind";
 import { Transition } from "@tailwindui/react";
 import MobileMenu from "./MobileMenu";
 import StaticSidebar from "./StaticSidebar";
 import ContentWindow from "./ContentWindow";
-
-const latLngContext = React.createContext({
-  Lat: -33.8688,
-  Lng: 151.2093,
-});
+import LogsContext from "../contexts/LogsContext";
+import { ContextDevTool } from "react-context-devtool";
 
 export default function Shell({ children, panTo }) {
   const [isOpen, setOpen] = useState(false);
   return (
-    <latLngContext.Provider
+    <LogsContext.Provider
       value={{
-        Lat: -33.8688,
-        Lng: 151.2093,
+        Log: {
+          lat: -33.8688,
+          lng: 151.2093,
+        },
+        Log1: {
+          lat: -33.8688,
+          lng: 151.2093,
+        },
       }}
     >
+      <ContextDevTool
+        context={LogsContext}
+        id="LogsContext01"
+        displayName="Logs Context"
+      />
       <div
         className={tw("flex h-full w-full", "overflow-hidden", "bg-gray-800")}
       >
@@ -51,6 +59,6 @@ export default function Shell({ children, panTo }) {
         <StaticSidebar panTo={panTo} />
         <ContentWindow panTo={panTo}>{children}</ContentWindow>
       </div>
-    </latLngContext.Provider>
+    </LogsContext.Provider>
   );
 }
