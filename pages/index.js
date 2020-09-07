@@ -8,7 +8,6 @@ import {
 import { formatRelative } from "date-fns";
 import mapStyle from "../components/mapStyle";
 import { useState, useCallback } from "react";
-import Search from "../components/Search";
 import Shell from "../components/Shell";
 
 const libraries = ["places"];
