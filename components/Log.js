@@ -2,13 +2,15 @@ import tw from "../utils/tailwind";
 import { useContext } from "react";
 import LogsContext from "../contexts/LogsContext";
 
+function removeLog() {}
+
 export default function Log({ lat, lng }) {
   // const newLat = useRecoilValue(rLat);
 
   return (
     <div
       className={tw(
-        "group flex items-center px-2 py-2",
+        "group relative flex items-center px-2 py-2",
         "text-sm leading-5 font-medium",
         "text-gray-300",
         "rounded-md",
@@ -35,7 +37,28 @@ export default function Log({ lat, lng }) {
           fill="currentColor"
         ></path>
       </svg>
-      {`Ghost Sighting at lat:${lat} & lng:${lng}`}
+      <p className="pr-5">{`Ghost Sighting at lat:${lat} & lng:${lng}`}</p>
+      <div
+        className={tw(
+          "absolute inset-y-0 right-0 pt-1 pr-1 flex items-start sm:pt-1 sm:pr-2 sm:items-start"
+        )}
+      >
+        <button
+          type="button"
+          onClick={removeLog}
+          className={tw(
+            "flex p-1 rounded-md hover:bg-gray-500 focus:outline-none focus:bg-gray-500 transition ease-in-out duration-150"
+          )}
+          aria-label="Dismiss"
+        >
+          <svg focusable="false" width="1em" height="1em" viewBox="0 0 24 24">
+            <path
+              d="M18.36 19.78L12 13.41l-6.36 6.37l-1.42-1.42L10.59 12L4.22 5.64l1.42-1.42L12 10.59l6.36-6.36l1.41 1.41L13.41 12l6.36 6.36z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
