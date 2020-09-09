@@ -64,11 +64,9 @@ export default function MobileMenu({ isOpen, setOpen }) {
                 </button>
               </div>
               <div className="flex-shrink-0 flex items-center px-4">
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"
-                  alt="Workflow"
-                />
+                <h1 className="text-center text-white text-3xl font-bold">
+                  &#x1F47B; Alert Global
+                </h1>
               </div>
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <div className="px-2 space-y-1">
