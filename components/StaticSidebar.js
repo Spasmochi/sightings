@@ -2,7 +2,7 @@ import tw from "../utils/tailwind";
 import Log from "./Log";
 import { useContext } from "react";
 import LogsContext from "../contexts/LogsContext";
-export default function StaticSidebar({ panTo, logs }) {
+export default function StaticSidebar() {
   const Logs = useContext(LogsContext);
   return (
     <div className={tw("hidden md:flex md:flex-shrink-0")}>

@@ -1,7 +1,7 @@
 import tw from "../utils/tailwind";
 import Search from "./Search";
 
-export default function ContentWindow({ children, panTo }) {
+export default function ContentWindow({ children, panTo, isOpen, setOpen }) {
   return (
     <div className="h-full w-full flex flex-col w-0 flex-1 overflow-hidden">
       <div className="relative z-10 flex-shrink-0 flex h-16 bg-gray-800 shadow">
@@ -13,6 +13,7 @@ export default function ContentWindow({ children, panTo }) {
             "md:hidden"
           )}
           aria-label="Open sidebar"
+          onClick={() => setOpen(!isOpen)}
         >
           <svg
             className="h-6 w-6"
