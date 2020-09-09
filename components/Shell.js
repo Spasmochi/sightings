@@ -4,61 +4,39 @@ import { Transition } from "@tailwindui/react";
 import MobileMenu from "./MobileMenu";
 import StaticSidebar from "./StaticSidebar";
 import ContentWindow from "./ContentWindow";
-import LogsContext from "../contexts/LogsContext";
-import { ContextDevTool } from "react-context-devtool";
 
 export default function Shell({ children, panTo }) {
   const [isOpen, setOpen] = useState(false);
   return (
-    <LogsContext.Provider
-      value={{
-        Log: {
-          lat: -33.8688,
-          lng: 151.2093,
-        },
-        Log1: {
-          lat: -33.8688,
-          lng: 151.2093,
-        },
-      }}
-    >
-      <ContextDevTool
-        context={LogsContext}
-        id="LogsContext01"
-        displayName="Logs Context"
-      />
-      <div
-        className={tw("flex h-full w-full", "overflow-hidden", "bg-gray-800")}
-      >
-        {/* <!-- Off-canvas menu for mobile --> */}
-        <div className={tw("md:hidden")}>
-          <div className={tw("fixed inset-0 flex")}>
-            <Transition
-              show={isOpen}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className={tw("fixed inset-0")}>
-                <div
-                  className={tw("absolute inset-0 bg-gray-600 opacity-75")}
-                ></div>
-              </div>
+    <div className={tw("flex h-full w-full", "overflow-hidden", "bg-gray-800")}>
+      {/* <!-- Off-canvas menu for mobile --> */}
+      <div className={tw("md:hidden")}>
+        <div className={tw("fixed inset-0 flex")}>
+          <Transition
+            show={isOpen}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className={tw("fixed inset-0")}>
+              <div
+                className={tw("absolute inset-0 bg-gray-600 opacity-75")}
+              ></div>
+            </div>
 
-              <MobileMenu />
-              <div className="flex-shrink-0 w-14">
-                {/* <!-- Dummy element to force sidebar to shrink to fit close icon --> */}
-              </div>
-            </Transition>
-          </div>
+            <MobileMenu />
+            <div className="flex-shrink-0 w-14">
+              {/* <!-- Dummy element to force sidebar to shrink to fit close icon --> */}
+            </div>
+          </Transition>
         </div>
-        {/* <!-- Static sidebar for desktop --> */}
-        <StaticSidebar panTo={panTo} />
-        <ContentWindow panTo={panTo}>{children}</ContentWindow>
       </div>
-    </LogsContext.Provider>
+      {/* <!-- Static sidebar for desktop --> */}
+      <StaticSidebar panTo={panTo} />
+      <ContentWindow panTo={panTo}>{children}</ContentWindow>
+    </div>
   );
 }
