@@ -1,6 +1,5 @@
 import { useState } from "react";
 import tw from "../utils/tailwind";
-import { Transition } from "@tailwindui/react";
 import MobileMenu from "./MobileMenu";
 import StaticSidebar from "./StaticSidebar";
 import ContentWindow from "./ContentWindow";

@@ -62,11 +62,14 @@ export default function Search({ panTo }) {
           />
           <ComboboxPopover className="bg-gray-800 text-white border-none">
             <ComboboxList>
-              <div className="py-1">
+              <div className="p-2">
                 {status === "OK" &&
                   data.map(({ id, description }) => (
                     <ComboboxOption
-                      className={tw("hover:bg-gray-900")}
+                      className={tw(
+                        "hover:bg-gray-700 py-4 font-normal rounded-md",
+                        "transition ease-in-out duration-150"
+                      )}
                       value={description}
                     />
                   ))}
