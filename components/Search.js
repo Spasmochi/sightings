@@ -67,7 +67,7 @@ export default function Search({ panTo }) {
                   data.map(({ id, description }) => (
                     <ComboboxOption
                       className={tw(
-                        "hover:bg-gray-700 py-4 font-normal rounded-md",
+                        "hover:bg-gray-700 py-4 font-normal rounded-md cursor-pointer",
                         "transition ease-in-out duration-150"
                       )}
                       value={description}
