@@ -3,7 +3,7 @@ import Log from "./Log";
 import { useContext } from "react";
 import LogsContext from "../contexts/LogsContext";
 export default function StaticSidebar() {
-  const Logs = useContext(LogsContext);
+  const Logs = useContext(LogsContext)[0];
   return (
     <div className={tw("hidden md:flex md:flex-shrink-0")}>
       <div className="flex flex-col w-64">
@@ -22,7 +22,7 @@ export default function StaticSidebar() {
           <div className="flex-1 flex flex-col overflow-y-auto">
             <div className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
               {Object.values(Logs).map((log) => (
-                <Log lat={log.lat} lng={log.lng} />
+                <Log key={log.lat} lat={log.lat} lng={log.lng} />
               ))}
             </div>
           </div>

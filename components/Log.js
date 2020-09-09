@@ -1,8 +1,12 @@
 import tw from "../utils/tailwind";
+import LogsContext from "../contexts/LogsContext";
+import { useContext } from "react";
 
-function removeLog() {}
+// function removeLog() {}
 
 export default function Log({ lat, lng }) {
+  const Logs = useContext(LogsContext)[0];
+  const updateLogs = useContext(LogsContext)[1];
   return (
     <div
       className={tw(
@@ -43,8 +47,8 @@ export default function Log({ lat, lng }) {
         )}
       >
         <button
+          onClick={() => updateLogs({ lat: -33.868989, lng: -98.213123 })}
           type="button"
-          onClick={removeLog}
           className={tw(
             "flex p-1 rounded-md hover:bg-gray-500 focus:outline-none focus:bg-gray-500 transition ease-in-out duration-150"
           )}

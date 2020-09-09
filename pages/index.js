@@ -71,7 +71,7 @@ export default function Home() {
   if (!isLoaded) return "Loading maps";
 
   return (
-    <LogsContext.Provider value={Logs}>
+    <LogsContext.Provider value={[Logs, upDateLogs]}>
       <ContextDevTool
         context={LogsContext}
         id="LogsContext01"
@@ -115,7 +115,7 @@ export default function Home() {
             >
               {markers.map((marker) => (
                 <LogsContext.Consumer>
-                  {({ Logs, upDateLogs }) => (
+                  {() => (
                     <Marker
                       key={marker.time.toISOString()}
                       position={{ lat: marker.lat, lng: marker.lng }}

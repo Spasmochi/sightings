@@ -5,7 +5,7 @@ import Log from "../components/Log";
 import LogsContext from "../contexts/LogsContext";
 
 export default function MobileMenu({ isOpen, setOpen }) {
-  const Logs = useContext(LogsContext);
+  const Logs = useContext(LogsContext)[0];
   return (
     <Transition show={isOpen}>
       <div className={tw("md:hidden ")}>
@@ -71,7 +71,7 @@ export default function MobileMenu({ isOpen, setOpen }) {
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <div className="px-2 space-y-1">
                   {Object.values(Logs).map((log) => (
-                    <Log lat={log.lat} lng={log.lng} />
+                    <Log key={log.lat} lat={log.lat} lng={log.lng} />
                   ))}
                 </div>
               </div>
