@@ -1,9 +1,9 @@
 import tw from "../utils/tailwind";
 import Log from "./Log";
-import { useContext } from "react";
-import LogsContext from "../contexts/LogsContext";
+import { Store } from "../contexts/Store";
+
 export default function StaticSidebar() {
-  const Logs = useContext(LogsContext)[0];
+  const { Logs } = Store();
   return (
     <div className={tw("hidden md:flex md:flex-shrink-0")}>
       <div className="flex flex-col w-64">

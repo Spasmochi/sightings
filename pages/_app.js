@@ -2,9 +2,11 @@ import "../styles/normalise.css";
 import "@reach/combobox/styles.css";
 import "../styles/tailwind.css";
 import "../styles/globals.css";
+import { Store } from "../contexts/Store";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }) => {
+  Store.setState(pageProps);
+  return <Component />;
+};
 
-export default MyApp;
+export default App;

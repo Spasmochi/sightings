@@ -2,10 +2,10 @@ import { useContext } from "react";
 import Transition from "../components/Transition";
 import tw from "../utils/tailwind";
 import Log from "../components/Log";
-import LogsContext from "../contexts/LogsContext";
+import { Store } from "../contexts/Store";
 
 export default function MobileMenu({ isOpen, setOpen }) {
-  const Logs = useContext(LogsContext)[0];
+  const { Logs } = Store();
   return (
     <Transition show={isOpen}>
       <div className={tw("md:hidden ")}>
