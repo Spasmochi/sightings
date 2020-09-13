@@ -1,4 +1,5 @@
 import { useSpring, animated } from "react-spring";
+import { tw } from "../utils/tailwind";
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
@@ -10,10 +11,32 @@ export function Intro() {
         config: { mass: 10, tension: 550, friction: 140 },
     }));
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center bg-opacity-0 absolute z-50" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-            <div className=" h-36 mt-12 text-center rounded-md bg-gray-800 p-5">
-                <h1 className="bg-clip-text text-transparent text-4xl bg-gradient-to-r from-white to-gray-400 tracking-tight leading-8 font-extrabold sm:text-5xl sm:leading-none md:text-6xl">Welcome to Ghosts Alert Global!</h1>
-                <p className="mt-1 max-w-md mx-auto text-base text-white sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+        <div className={tw(
+            "w-full h-full",
+            "flex flex-col items-center justify-center",
+            "bg-opacity-0 absolute z-50")}
+            onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+        >
+            <div className={tw(
+                "h-36 mt-12",
+                "text-center rounded-md p-5",
+                "bg-gray-800 "
+            )}>
+                <h1 className={tw(
+                    "bg-clip-text text-transparent",
+                    "text-4xl tracking-tight leading-8 font-extrabold",
+                    "sm:text-5xl sm:leading-none",
+                    "md:text-6xl",
+                    "bg-gradient-to-r from-white to-gray-400"
+                )}>
+                    Welcome to Ghosts Alert Global!
+                </h1>
+                <p className={tw(
+                    "mt-1 max-w-md mx-auto",
+                    "text-base text-white",
+                    "sm:text-lg",
+                    "md:mt-5 md:text-xl md:max-w-3xl"
+                )}>
                     click anywhere on the map to track your ghostly sightings
                 </p>
             </div>
@@ -27,6 +50,6 @@ export function Intro() {
                     style={{ transform: props.xy.interpolate(trans2) }}
                 />
             </div>
-        </div>
+        </div >
     );
 }

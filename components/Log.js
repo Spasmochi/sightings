@@ -45,7 +45,9 @@ export default function Log({ lat, lng, logId }) {
           onClick={() => removeLog(logId)}
           type="button"
           className={tw(
-            "flex p-1 rounded-md hover:bg-gray-500 focus:outline-none focus:bg-gray-500 transition ease-in-out duration-150"
+            "flex p-1 rounded-md",
+            "hover:bg-gray-500 focus:outline-none focus:bg-gray-500",
+            "transition ease-in-out duration-150"
           )}
           aria-label="Dismiss"
         >
