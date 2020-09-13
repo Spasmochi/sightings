@@ -19,7 +19,6 @@ export const Store = create(
     removeLog: (logId) =>
       set((state) => {
         const Logs = state.Logs.filter((log) => log.logId !== logId);
-
         return {
           Logs,
         };
