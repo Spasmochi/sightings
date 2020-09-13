@@ -1,3 +1,29 @@
 html {
   font-family: proxima-nova, sans-serif !important;
 }
+
+.card1,
+.card2 {
+  position: absolute;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+.card1 {
+  min-width: 20ch;
+  min-height: 20ch;
+  width: 40vw;
+  height: 40vw;
+  max-width: 75ch;
+  max-height: 75ch;
+  background-image: url(https://www.flaticon.com/premium-icon/icons/svg/2015/2015220.svg);
+}
+
+.card2 {
+  width: 15ch;
+  height: 15ch;
+  background-image: url(https://www.flaticon.com/svg/static/icons/svg/477/477104.svg);
+}

@@ -10,6 +10,7 @@ import mapStyle from "../components/mapStyle";
 import { useState, useCallback } from "react";
 import Shell from "../components/Shell";
 import { Store } from "../contexts/Store";
+import { Intro } from "../components/Intro";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -84,6 +85,7 @@ export default function Home() {
       </style>
       <main className="relative h-full">
         <Shell panTo={panTo}>
+          <Intro />
           <GoogleMap
             mapContainerStyle={mapContainerStyle}
             zoom={15}
