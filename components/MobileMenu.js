@@ -5,7 +5,7 @@ import Log from "../components/Log";
 import { Store } from "../contexts/Store";
 
 export default function MobileMenu({ isOpen, setOpen }) {
-  const { Logs } = Store();
+  const Logs = Store((state) => state.Logs);
   return (
     <Transition show={isOpen}>
       <div className={tw("md:hidden ")}>
@@ -70,16 +70,19 @@ export default function MobileMenu({ isOpen, setOpen }) {
               </div>
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <div className="px-2 space-y-1">
-                  {Object.values(Logs).map((log) => (
-                    <Log key={log.lat} lat={log.lat} lng={log.lng} />
+                  {Logs.map((log) => (
+                    <Log
+                      key={log.logId}
+                      logId={log.logId}
+                      lat={log.lat}
+                      lng={log.lng}
+                    />
                   ))}
                 </div>
               </div>
             </div>
           </Transition>
-          <div className="flex-shrink-0 w-14">
-            {/* <!-- Dummy element to force sidebar to shrink to fit close icon --> */}
-          </div>
+          <div className="flex-shrink-0 w-14"></div>
         </div>
       </div>
     </Transition>

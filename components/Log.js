@@ -1,11 +1,8 @@
 import tw from "../utils/tailwind";
 import { Store } from "../contexts/Store";
 
-// function removeLog() {}
-
-export default function Log({ lat, lng }) {
-  const { setLogs } = Store();
-
+export default function Log({ lat, lng, logId }) {
+  const removeLog = Store((state) => state.removeLog);
   return (
     <div
       className={tw(
@@ -45,7 +42,7 @@ export default function Log({ lat, lng }) {
         )}
       >
         <button
-          onClick={() => setLogs({ lat: -33.868989, lng: -98.213123 })}
+          onClick={() => removeLog(logId)}
           type="button"
           className={tw(
             "flex p-1 rounded-md hover:bg-gray-500 focus:outline-none focus:bg-gray-500 transition ease-in-out duration-150"
