@@ -33,27 +33,13 @@ export default function Home() {
     libraries,
   });
 
-  const [markers, setMarkers] = useState([]);
   const [Selected, setSelected] = useState(null);
 
-  const { Logs, addLog } = Store();
+  const addLog = Store((state) => state.addLog);
+  const Logs = Store((state) => state.Logs);
 
   const onMapClick = useCallback((event) => {
-    setMarkers((current) => [
-      ...current,
-      {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-        time: new Date(),
-      },
-    ]);
-    addLog((current) => [
-      ...current,
-      {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-      },
-    ]);
+    addLog(event.latLng.lat(), event.latLng.lng(), new Date());
   }, []);
 
   const mapRef = React.useRef();
@@ -106,7 +92,7 @@ export default function Home() {
             onClick={onMapClick}
             onLoad={onMapLoad}
           >
-            {markers.map((marker) => (
+            {Logs.map((marker) => (
               <Marker
                 key={marker.time.toISOString()}
                 position={{ lat: marker.lat, lng: marker.lng }}
@@ -118,7 +104,8 @@ export default function Home() {
                 }}
                 onClick={() => {
                   setSelected(marker);
-                  addLog(marker);
+                  console.log(marker.lat);
+                  addLog(155, 55);
                 }}
               />
             ))}

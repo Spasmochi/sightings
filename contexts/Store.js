@@ -1,21 +1,20 @@
 import create from "zustand";
 import { devtools } from "zustand/middleware";
 
-export const [useStore, Store] = create(function Store(set, get) {
+export const Store = create(
   devtools((set) => ({
     Logs: [],
-    addLog: () => {
-      let state = get();
-      set({
+    addLog: (lat, lng, time) =>
+      set((state) => ({
         Logs: [
           ...state.Logs,
           {
-            lat: 144,
-            lng: -59,
+            key: (Math.random() * (9000 - 1 + 1)) << 0,
+            lat: lat,
+            lng: lng,
+            time: time,
           },
         ],
-      });
-    },
-    removeLog: (Logs) => set({ Logs }),
-  }));
-});
+      })),
+  }))
+);
