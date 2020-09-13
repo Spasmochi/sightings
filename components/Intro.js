@@ -11,8 +11,11 @@ export function Intro() {
     }));
     return (
         <div className="w-full h-full flex flex-col items-center justify-center bg-opacity-0 absolute z-50" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-            <div className="h-32 mt-12 text-center">
-                <h1 className="bg-clip-text text-transparent text-4xl bg-gradient-to-r from-white to-gray-400 tracking-tight leading-10 font-extrabold sm:text-5xl sm:leading-none md:text-6xl">Welcome to Ghosts Alert Global!</h1>
+            <div className=" h-36 mt-12 text-center rounded-md bg-gray-800 p-5">
+                <h1 className="bg-clip-text text-transparent text-4xl bg-gradient-to-r from-white to-gray-400 tracking-tight leading-8 font-extrabold sm:text-5xl sm:leading-none md:text-6xl">Welcome to Ghosts Alert Global!</h1>
+                <p className="mt-1 max-w-md mx-auto text-base text-white sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    click anywhere on the map to track your ghostly sightings
+                </p>
             </div>
             <div className="w-full h-full flex items-center justify-center bg-opacity-0">
                 <animated.div
