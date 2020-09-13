@@ -105,7 +105,6 @@ export default function Home() {
                 onClick={() => {
                   setSelected(marker);
                   console.log(marker.lat);
-                  addLog(155, 55);
                 }}
               />
             ))}
