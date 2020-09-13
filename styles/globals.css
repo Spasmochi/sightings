@@ -19,11 +19,11 @@ html {
   height: 40vw;
   max-width: 75ch;
   max-height: 75ch;
-  background-image: url(https://www.flaticon.com/premium-icon/icons/svg/2015/2015220.svg);
+  background-image: url(/2015220.svg);
 }
 
 .card2 {
   width: 15ch;
   height: 15ch;
-  background-image: url(https://www.flaticon.com/svg/static/icons/svg/477/477104.svg);
+  background-image: url(/ghostBig.svg);
 }
